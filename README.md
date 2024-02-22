@@ -5,6 +5,14 @@
 
 </div>
 
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/SteinCodeAT/astro-starter-template/main/src/img/Placeholder-1.webp"
+  height=200
+ />
+
+ </div>
+
 # Astro Starter Template
 
 ## Table of Contents
@@ -165,7 +173,7 @@ Building a good website is difficult as it encompasses a lot of topics such as p
 Contributions are welcome! Please feel free to submit a pull request or open an issue if you have suggestions for improvements.
 
 ## License
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](https://github.com/SteinCodeAT/astro-starter-template/blob/main/LICENSE).
 
 ## Support
 If you need help or have any questions, please open an issue for support.
