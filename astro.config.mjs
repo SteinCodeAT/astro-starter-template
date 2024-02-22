@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import compressor from "astro-compressor";
 
 export default defineConfig({
-  site: 'https://www.your-site.com',
+  site: 'https://steincodeat.github.io/',
   base: 'astro-starter-template/',
   integrations: [
     sitemap(),
