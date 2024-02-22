@@ -1,0 +1,80 @@
+---
+import { Icon } from 'astro-icon/components'
+import { socialMediaUrls } from '../const.js'
+
+---
+
+
+<footer>
+	&copy; <span class="copyright-year"></span> Your-Site
+	<div class="social-links">
+		<a href={socialMediaUrls.linkedin} target="_blank">
+			<span class="sr-only">Follow us on Linkedin</span>
+			<Icon name="mdi:linkedin">
+		</a>
+		<a href={socialMediaUrls.twitter} target="_blank">
+			<span class="sr-only">Follow us on Twitter</span>
+			<Icon name="mdi:twitter">
+		</a>
+		<a href={socialMediaUrls.github} target="_blank">
+			<span class="sr-only">Check out our Github</span>
+			<Icon name="mdi:github">
+		</a>
+	</div>
+	
+	<div class="internal-links">
+		<a href="/imprint">Imprint</a>
+		<a href="/privacy">Privacy</a>
+	</div>
+</footer>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const today = new Date()
+		document.querySelectorAll(".copyright-year").forEach(item => item.innerHTML = today.getFullYear().toString())
+	})
+</script>
+
+<style>
+	footer {
+		padding: 2rem 1rem 3rem 1rem;
+		background: var(--dark-bg);
+		color: var(--text-color-inversed);
+		text-align: center;
+		border-top: 1px solid rgba(var(--secondary), 50%)
+	}
+
+    footer a {
+        color: var(--accent);
+    }
+
+    footer a:hover {
+        color: var(--accent-dark);
+    }
+
+	footer .social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+
+	footer .social-links svg {
+		height: 1.5rem;
+		width: 1.5rem;
+	}
+
+	footer .internal-links {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	@media (max-width: 720px) {
+		footer .internal-links {
+			flex-direction: column;
+			gap: 0.5rem;
+			margin-top: 1rem;
+		}
+	}
+</style>

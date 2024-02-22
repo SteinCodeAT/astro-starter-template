@@ -1,0 +1,45 @@
+{
+    "name": "steincode-astro-starter-template",
+    "type": "module",
+    "version": "0.0.1",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "prettier --write",
+            "eslint --fix",
+            "git add"
+        ],
+        "*.{html,css,less,ejs,astro}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro check && astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "format": "prettier --plugin=prettier-plugin-astro --write .",
+        "prettier:check": "prettier --check --plugin=prettier-plugin-astro ."
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.5.2",
+        "@astrojs/sitemap": "^3.0.5",
+        "@iconify-json/mdi": "^1.1.64",
+        "astro": "^4.3.5",
+        "typescript": "^5.3.3"
+    },
+    "devDependencies": {
+        "astro-compressor": "^0.4.1",
+        "astro-icon": "^1.1.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5",
+        "prettier-plugin-astro": "^0.13.0"
+    }
+}

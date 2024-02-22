@@ -1,0 +1,158 @@
+/* 
+    Global css rules that are valid across all pages
+    This includes for instance:
+    - Declaring color variables
+    - setting sensible default styles for basic tags
+  
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+*/
+
+
+:root {
+	color-scheme: light;
+
+    --dark-bg: rgb(16, 18, 27);
+
+    --main-bg: rgb(255, 255, 255, 80%);
+    --text-color: rgb(0, 0, 0, 80%);
+
+    --text-color-inversed: rgba(255, 255, 255, 80%);
+
+    --accent: rgb(47, 151, 70);
+	--accent-dark: rgb(27, 85, 39);
+
+    --secondary: rgb(171, 178, 180);
+    --secondary-dark: rgb(108, 117, 119);
+}
+
+body {
+	font-family: "Roboto";
+	margin: 0;
+	padding: 0;
+	background: var(--main-bg);
+	color: var(--text-color);
+	font-size: 1rem;
+	line-height: 1.7;
+
+	scrollbar-face-color: rgb(var(--secondary-dark));
+	scrollbar-base-color: rgb(var(--secondary-dark));
+	scrollbar-3dlight-color: rgb(var(--secondary-dark));
+	scrollbar-highlight-color: rgb(var(--secondary-dark));
+	scrollbar-track-color: rgb(var(--secondary));
+	scrollbar-arrow-color: rgb(var(--secondary));
+	scrollbar-shadow-color: rgb(var(--secondary-dark));
+  }
+  
+  ::-webkit-scrollbar { width: 0.9rem; height: 3px;}
+  ::-webkit-scrollbar-button {  background-color: var(--secondary-dark); }
+  ::-webkit-scrollbar-track {  background-color: var(--secondary)}
+  ::-webkit-scrollbar-track-piece { background-color: var(--secondary);}
+  ::-webkit-scrollbar-thumb { height: 4rem; background-color: var(--secondary-dark); border-radius: 3px;}
+  ::-webkit-scrollbar-corner { background-color: var(--secondary-dark);}
+  ::-webkit-resizer { background-color: rgb(var(--secondary-dark));}
+
+  
+main {
+    width: 780px;
+	max-width: calc(100% - 2rem);
+	margin: auto;
+	padding: 3rem 1rem;
+	min-height: 70vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1rem;
+}
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.8rem;
+}
+h4 {
+	font-size: 1.6rem;
+}
+h5 {
+	font-size: 1.4rem;
+}
+h6 {
+	font-size: 1.2rem;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--text-color);
+	cursor: pointer;
+}
+a:hover {
+	color: var(--accent);
+}
+p {
+	margin-bottom: 1rem;
+	word-break: break-word;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 1rem;
+	margin: 0;
+	font-size: 1.5rem;
+}
+hr {
+	border: none;
+	border-top: 1px solid var(--secondary);
+}
+
+@media (max-width: 720px) {
+	main {
+		padding: 1rem;
+	}
+
+	h1 {
+		font-size: 1.8rem;
+	}
+	h2 {
+		font-size: 1.7rem;
+	}
+	h3 {
+		font-size: 1.6rem;
+	}
+
+	.no-mobile {
+		display: none;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

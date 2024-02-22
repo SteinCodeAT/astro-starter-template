@@ -1,0 +1,198 @@
+---
+import HeaderLink from './HeaderLink.astro'
+
+import { pageTitle } from '../const.js'
+
+import { Icon } from 'astro-icon/components';
+
+---
+
+<style is:global>
+    /* This link is used by screen readers to skip beyond the navigation to the main content */
+	.sr-skip-link {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		margin: 1px;
+		opacity: 0;
+		z-index: 999;
+	}
+
+	.brand svg {
+		height: 2rem;
+		width: 2rem;
+		margin-right: 0.5rem;
+	}
+
+	.brand-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		transition: filter 0.2s ease-in-out;
+	}
+
+	.brand:hover {
+		color: inherit;
+		filter: brightness(80%);
+	}
+
+	nav li {
+		list-style: none;
+	}
+	
+	header {
+		margin: 0;
+		padding: 0;
+	}
+
+	header a {
+		color: var(--text-color);
+	}
+
+	header h2 {
+		margin: 0;
+		font-size: 1.5rem;
+	}
+
+	header h2 a,
+	header h2 a.active {
+		text-decoration: none;
+	}
+
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.7rem 1rem;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		max-height: 100vh;
+		transition: max-height,opacity 1s ease-in-out;
+	}
+
+	.nav-links .nav-link {
+		font-size: 120%;
+		padding: 0.5rem 0.5rem;
+		color: var(--text-color);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+		transition: border-bottom 0.1s ease-in-out;
+	}
+	.nav-links .nav-link.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	.nav-links .nav-link:hover {
+		border-bottom-color: var(--accent);
+		color: var(--text-color);
+	}
+
+	.nav-buttons {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#burger-menu-icon {
+		display: none;
+		cursor: pointer;
+		padding: 0;
+		background: transparent;
+		border: unset;
+		color: var(--text-color)
+	}
+
+	#burger-menu-icon svg {
+		height: 3rem;
+		width: 3rem;
+	}
+
+	#burger-menu-icon:hover {
+		cursor: pointer;
+	}
+
+	#burger-menu-icon:hover svg {
+		color: var(--text-color)
+	}
+
+	@media (max-width: 792px) {
+
+      #burger-menu-icon {
+		display: block;
+	  }
+
+	  .nav-links {
+		padding: 0;
+		flex-direction: column;
+		max-height: 0;
+		transition: max-height 0.5s ease-in-out;
+		border-top: 1px solid rgb(var(--secondary));
+		border-bottom: 1px solid rgb(var(--secondary));
+		gap: 1.5rem;
+		overflow: hidden;
+	  }
+
+	  .nav-links.show {
+		max-height: 50vh;
+		transition: max-height 0.5s ease-in-out;
+	  }
+
+	  .nav-links > li:first-child {
+		margin-top: 1rem
+	  }
+
+	  .brand-wrapper {
+		width: 100%;
+	  }
+
+	  header {
+		flex-direction: column;
+	  }
+
+	  nav {
+		width: 100%;
+		flex-direction: column;
+	  }
+    }
+
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+        /* Mobile Menu */
+        document.getElementById("burger-menu-icon")?.addEventListener("click", () => {
+            document.querySelector(".nav-links")?.classList.toggle("show")
+		})
+	})
+</script>
+
+<!-- This link is used by screen readers to skip beyond the navigation to the main content -->
+<a href="#main" class="sr-skip-link">
+	Skip to main
+</a>
+
+<header>
+	<div class="brand-wrapper">
+		<h2><a class="brand" href="/"><Icon name="logo" /> {pageTitle}</a></h2>
+		<button id="burger-menu-icon" aria-expanded="false" aria-controls="main-nav"><Icon name="mdi:menu"></Icon></button>
+	</div>	
+	
+	<nav role="navigation" id="main-nav">
+		<ul class="nav-links">
+			<HeaderLink class="nav-link" href="/">Home</HeaderLink>
+			<HeaderLink class="nav-link" href="/blog">Blog</HeaderLink>
+            <HeaderLink class="nav-link" href="/contact">Contact</HeaderLink>
+		</ul>
+	</nav>
+</header>
