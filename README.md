@@ -71,7 +71,7 @@ npm install
 
 Before launching the development server, ensure you:
 
-1. Replace the site-name in `astro.config.mjs` with your domain
+1. Replace the site-name in `astro.config.mjs` with your domain and remove or update the `base` variable.
 2. Populate `src/const.js` with your site's metadata and social links.
 3. Replace the `logo.svg` in `src/icons` and the placeholder image in `src/img`.
 

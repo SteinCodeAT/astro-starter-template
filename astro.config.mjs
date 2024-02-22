@@ -5,7 +5,7 @@ import compressor from "astro-compressor";
 
 export default defineConfig({
   site: 'https://www.your-site.com',
-  base: '',
+  base: 'astro-starter-template/',
   integrations: [
     sitemap(),
     icon({
